@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Sveltia CMS</title>
+  </head>
+  <body>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+    <script>
+      CMS.init({
+        config: {
+          load_config_file: false,
+          backend: {
+            name: 'github',
+            repo: 'Rosa-O-O/Hugo',
+          },
+          media_folder: '/public/media',
+          public_folder: '/media',
+          collections: [
+            {
+              name: 'posts',
+              label: 'Posts',
+              folder: '/content/posts',
+              fields: [
+                { label: 'Title', name: 'title', widget: 'string' },
+                { label: 'Date', name: 'date', widget: 'datetime', type: 'date' },
+                { label: 'Body', name: 'body', widget: 'richtext' }
+              ]
+            }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>
